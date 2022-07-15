@@ -13,6 +13,7 @@ class MyThemeData {
       appBarTheme: AppBarTheme(
         backgroundColor: Colors.transparent,
         elevation: 0,
+        iconTheme: IconThemeData(color: BlackColor),
       ),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
           selectedItemColor: BlackColor, unselectedItemColor: Colors.white));
