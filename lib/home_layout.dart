@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:islami_c6_offline/tabs/ahadeth.dart';
+import 'package:islami_c6_offline/tabs/ahadeth/ahadeth.dart';
 import 'package:islami_c6_offline/tabs/quran/quran.dart';
 import 'package:islami_c6_offline/tabs/radio.dart';
 import 'package:islami_c6_offline/tabs/tasbeh.dart';
@@ -12,7 +12,7 @@ class HomeLayout extends StatefulWidget {
 }
 
 class _HomeLayoutState extends State<HomeLayout> {
-  int currentIndex = 0;
+  int currentIndex = 3;
 
   @override
   Widget build(BuildContext context) {

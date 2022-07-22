@@ -62,9 +62,8 @@ class _SuraDetailsState extends State<SuraDetails> {
   void loadFile(int index) async {
     String content =
         await rootBundle.loadString('assets/files/${index + 1}.txt');
-    print(content);
-    List<String> ayat = [];
-    ayat.add(content);
+    // print(content);
+    List<String> ayat = content.split('\n');
     verses = ayat;
     setState(() {});
   }
