@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:islami_c6_offline/providers/app_provider.dart';
 import 'package:islami_c6_offline/tabs/ahadeth/ahadeth.dart';
+import 'package:provider/provider.dart';
 
 import 'hadeth_details_item.dart';
 
@@ -10,10 +12,11 @@ class HadethDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     HadethModel model =
         ModalRoute.of(context)!.settings.arguments as HadethModel;
+    var pro = Provider.of<AppProvider>(context);
     return Stack(
       children: [
         Image.asset(
-          'assets/images/main_background.png',
+          pro.changeMainBackground(),
           width: double.infinity,
           height: double.infinity,
           fit: BoxFit.fill,

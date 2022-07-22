@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islami_c6_offline/providers/app_provider.dart';
+import 'package:islami_c6_offline/settings/settings.dart';
 import 'package:islami_c6_offline/tabs/ahadeth/ahadeth.dart';
 import 'package:islami_c6_offline/tabs/quran/quran.dart';
 import 'package:islami_c6_offline/tabs/radio.dart';
 import 'package:islami_c6_offline/tabs/tasbeh.dart';
+import 'package:provider/provider.dart';
 
 class HomeLayout extends StatefulWidget {
   static const String routeName = 'Home';
@@ -12,14 +16,15 @@ class HomeLayout extends StatefulWidget {
 }
 
 class _HomeLayoutState extends State<HomeLayout> {
-  int currentIndex = 3;
+  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
+    var pro = Provider.of<AppProvider>(context);
     return Stack(
       children: [
         Image.asset(
-          'assets/images/main_background.png',
+          pro.changeMainBackground(),
           width: double.infinity,
           height: double.infinity,
           fit: BoxFit.fill,
@@ -29,7 +34,7 @@ class _HomeLayoutState extends State<HomeLayout> {
           appBar: AppBar(
             centerTitle: true,
             title: Text(
-              'Islami',
+              AppLocalizations.of(context)!.islamiTitle,
               style: Theme.of(context).textTheme.headline1,
             ),
           ),
@@ -45,16 +50,19 @@ class _HomeLayoutState extends State<HomeLayout> {
               items: [
                 BottomNavigationBarItem(
                     icon: ImageIcon(AssetImage('assets/images/quran.png')),
-                    label: 'Quran'),
+                    label: AppLocalizations.of(context)!.quran),
                 BottomNavigationBarItem(
                     icon: ImageIcon(AssetImage('assets/images/sebha.png')),
-                    label: 'Tasbeh'),
+                    label: AppLocalizations.of(context)!.sebha),
                 BottomNavigationBarItem(
                     icon: ImageIcon(AssetImage('assets/images/radio.png')),
                     label: 'Radio'),
                 BottomNavigationBarItem(
                     icon: ImageIcon(AssetImage('assets/images/ahadeth.png')),
-                    label: 'Ahadeth'),
+                    label: AppLocalizations.of(context)!.hadeth),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.settings),
+                    label: AppLocalizations.of(context)!.setting),
               ],
             ),
           ),
@@ -68,6 +76,7 @@ class _HomeLayoutState extends State<HomeLayout> {
     QuranScreen(),
     TasbehScreen(),
     RadioScreen(),
-    AhadethScreen()
+    AhadethScreen(),
+    SettingsTab()
   ];
 }
