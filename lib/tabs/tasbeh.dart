@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class TasbehScreen extends StatefulWidget {
   TasbehScreen({Key? key}) : super(key: key);
@@ -72,13 +73,13 @@ class _TasbehScreenState extends State<TasbehScreen> {
                 increese();
                 changetitle();
               },
-              child: Image.asset('assets/images/sebhabady.png'),
+              child: Image.asset('assets/images/sebhabody.png'),
             ),
             SizedBox(
               height: heightscreen * .03,
             ),
             Text(
-              "عدد التسبيحات",
+              AppLocalizations.of(context)!.tsbeh_counter,
               style: TextStyle(fontSize: 25),
             ),
             SizedBox(
